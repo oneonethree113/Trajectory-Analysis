@@ -17,6 +17,8 @@ To address this problem, I developed a Python script that performs trajectory cl
 3. **Hierarchical Clustering**: I used the hierarchical clustering algorithm provided by the `scikit-learn` library. The calculated similarity was utilized as the distance metric to create clusters of trajectories.
 
 4. **Visualization**: After clustering, I visualized the trajectories using different colors for each cluster. This allows easy identification of the most common trajectory groups.
+   
+![Image Description]([https://github.com/oneonethree113/Trajectory-Analysis/blob/main/images/Cluster.png?raw=true])
 
 ## Demo in Google Colab
 
