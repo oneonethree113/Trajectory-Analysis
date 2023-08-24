@@ -6,6 +6,8 @@ This repository contains the solution to a technical test involving the clusteri
 
 Given a JSON file containing trajectories, the task is to group these trajectories based on their similarity in direction. Similar trajectories are expected to belong to the same cluster, while trajectories with distinct directions should be assigned to different clusters.
 
+![Result](images/original.png?raw=true)
+
 ## Solution Overview
 
 To address this problem, I developed a Python script that performs trajectory clustering using hierarchical clustering. Here's how my code works:
@@ -18,7 +20,7 @@ To address this problem, I developed a Python script that performs trajectory cl
 
 4. **Visualization**: After clustering, I visualized the trajectories using different colors for each cluster. This allows easy identification of the most common trajectory groups.
    
-![Result]([https://github.com/oneonethree113/Trajectory-Analysis/blob/main/images/Cluster.png?raw=true])
+![Result](images/Cluster.png?raw=true)
 
 ## Demo in Google Colab
 
