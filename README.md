@@ -70,6 +70,7 @@ To run the unit tests, execute the following command:
 ```bash
 python test.py
 ```
+
 ## Future Work
 
 - **Optimizing Execution Time**: One of the areas I plan to focus on is optimizing the execution time of the script, particularly for larger datasets. One approach I'm considering is precomputing and storing the near area of each trajectory. By doing so, I can reduce redundant calculations and streamline the clustering process, resulting in faster execution times
