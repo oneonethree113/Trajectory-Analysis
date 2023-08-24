@@ -99,7 +99,7 @@ def generateDistanceMapForLargeData(parsedTrajectoryList: list, windowSize: int)
     """
     Generate a similarity-based distance map for a list of trajectories using the concept of Dilation in image processing.
     The distance is calculated based on how many coordinates of both trajectories are near each other.
-    The execution time will be shorter when dataset has more than 3000 prajectories.
+    The execution time will be shorter when dataset has more than 3000 trajectories.
 
     Args:
         parsedTrajectoryList (list): A list of Trajectory instances.
