@@ -39,8 +39,8 @@ Check out the [Google Colab demo](https://colab.research.google.com/github/oneon
  ```bash
 # You can adjust the following hyperparameters as needed
 
-windowSize = 200  # The window size for trajectory comparison in similarity calculation. Bigger value indicate merge the trajectories with further distance into the same cluster.
-distanceThreshold = 0.5  # The threshold for merging clusters. Bigger value indicate merge the trajectories with further distance into the same cluster.
+windowSize = 200  # The window size for trajectory comparison in similarity calculation. Bigger value indicate merging the trajectories with further distance into the same cluster.
+distanceThreshold = 0.5  # The threshold for merging clusters. Bigger value indicate merging the trajectories with further distance into the same cluster.
 sampleSize = 1000  # The number of trajectories to process
 numMostCommonGroupToDisplay = 30  # The number of trajectory clusters to show
  ```
