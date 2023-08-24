@@ -22,18 +22,18 @@ def getBigCluster(clusters: list, numMostCommonGroupToDisplay: int) -> dict:
         else:
             clusterMembers[clusterId] = [idx]
 
-    cluster_sizes = Counter(clusters)  # Count the size of each cluster
-    largest_clusters = cluster_sizes.most_common(numMostCommonGroupToDisplay)  # Find the largest clusters
+    clusterSizes = Counter(clusters)  # Count the size of each cluster
+    largestClusters = clusterSizes.most_common(numMostCommonGroupToDisplay)  # Find the largest clusters
 
-    big_cluster = {}
-    for cluster, size in largest_clusters:
-        big_cluster[len(big_cluster)] = clusterMembers[cluster]
+    bigCluster = {}
+    for cluster, size in largestClusters:
+        bigCluster[len(bigCluster)] = clusterMembers[cluster]
 
-    return big_cluster
+    return bigCluster
 
 def formClusterOfTrajectory(distanceMap: np.ndarray, distanceThreshold: float) -> np.ndarray:
     """
-    Perform hierarchical clustering on a distance map.
+    Perform hierarchical clustering on a distance map with ski-learn.
 
     Args:
         distanceMap (numpy.ndarray): Distance map for entities.
@@ -67,16 +67,16 @@ def generateDistanceMap(parsedTrajectoryList: list, windowSize: int) -> np.ndarr
     for i, entity in enumerate(parsedTrajectoryList):
         disArray = []  # Initialize an array to store distances from the current entity
 
-        if i % (len(parsedTrajectoryList) / 20) == 0:
+        if i % 10 == 0:
             print(f'{i} of {len(parsedTrajectoryList)} trajectories has been processed')
 
-        # Calculate similarity with all other entities
+        # Calculate similarity with all other trajectories
         for j, entity2 in enumerate(parsedTrajectoryList):
             if i > j:
                 continue
-            similarity = 1 - entity.similarity(entity2, windowSize)  # Calculate the similarity
-            distanceMap[i][j] = similarity
-            distanceMap[j][i] = similarity
+            distance = 1 - entity.similarity(entity2, windowSize)  # Calculate the similarity
+            distanceMap[i][j] = distance
+            distanceMap[j][i] = distance
 
     print(f'All trajectories have been processed')
 

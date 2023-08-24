@@ -28,15 +28,17 @@ def drawClusterOnAllPraj(allTrajectory: list,clusterSet: dict,clusterIdx=None,ti
     if clusterIdx==None:
         for cluster_idx,cluster in clusterSet.items():
             for mem in cluster:
-                traj=allTrajectory[mem]
-                x_coords, y_coords = traj.trajExport()
-                plt.plot(x_coords, y_coords, color=cluster_colors[cluster_idx])
                 clusterPrajList.append(mem)
         for idx,traj in enumerate(allTrajectory):
             if idx in clusterPrajList:
                 continue
             x_coords, y_coords = traj.trajExport()
             plt.plot(x_coords, y_coords, color='black')
+        for cluster_idx,cluster in clusterSet.items():
+            for mem in cluster:
+                traj=allTrajectory[mem]
+                x_coords, y_coords = traj.trajExport()
+                plt.plot(x_coords, y_coords, color=cluster_colors[cluster_idx])
         # Add labels and title
         plt.xlabel('X Coordinate')
         plt.ylabel('Y Coordinate')
@@ -45,9 +47,6 @@ def drawClusterOnAllPraj(allTrajectory: list,clusterSet: dict,clusterIdx=None,ti
         plt.clf()
     else:
         for mem in clusterSet[clusterIdx]:
-            traj=allTrajectory[mem]
-            x_coords, y_coords = traj.trajExport()
-            plt.plot(x_coords, y_coords, color=cluster_colors[clusterIdx])
             clusterPrajList.append(mem)
         
         for idx,traj in enumerate(allTrajectory):
@@ -56,6 +55,10 @@ def drawClusterOnAllPraj(allTrajectory: list,clusterSet: dict,clusterIdx=None,ti
             x_coords, y_coords = traj.trajExport()
             plt.plot(x_coords, y_coords, color='black')
             
+        for mem in clusterSet[clusterIdx]:
+            traj=allTrajectory[mem]
+            x_coords, y_coords = traj.trajExport()
+            plt.plot(x_coords, y_coords, color=cluster_colors[clusterIdx])
         
         
         # Add labels and title
