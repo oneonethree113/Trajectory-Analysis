@@ -14,7 +14,7 @@ To address this problem, I developed a Python script that performs trajectory cl
 
 1. **Classes**: I created two classes, `Coordinates` and `Trajectory`, to handle the trajectory data and calculate the similarity between trajectories.
 
-2. **Similarity Calculation**: I computed the similarity between trajectories by comparing their directions. The similarity metric was then used as the distance metric for clustering. The idea of similarity calculation is from [Dilation process in image processing](https://en.wikipedia.org/wiki/Dilation_(morphology)). With dilation operation, the prajectories became a range of area from lines. Then calculate the ratio of coordinates of a trajectory in the dilation area of another trajectory to get the similarity score.
+2. **Similarity Calculation**: I computed the similarity between trajectories by comparing their directions. The similarity metric was then used as the distance metric for clustering. The idea of similarity calculation is from [Dilation process in image processing](https://en.wikipedia.org/wiki/Dilation_(morphology)). With dilation operation, the prajectories became a range of area. Then calculate the ratio of the dilation area of a trajectory overlapping coordinates of the next trajectory to get the similarity score.
 
 3. **Hierarchical Clustering**: I used the hierarchical clustering algorithm provided by the `scikit-learn` library. The calculated similarity was utilized as the distance metric to create clusters of trajectories.
 
@@ -60,6 +60,17 @@ Modify the values of these hyperparameters to customize the behavior of the clus
 ```bash
 python main.py
 ```
+
+## Testing
+
+To ensure the reliability and correctness of the trajectory clustering script, a set of unit tests have been implemented. These tests cover various aspects of the script's functionality and help identify any potential issues.
+
+To run the unit tests, execute the following command:
+
+```bash
+python test.py
+```
+
 ## Future Work
 
 - **Optimizing Execution Time**: One of the areas I plan to focus on is optimizing the execution time of the script, particularly for larger datasets. One approach I'm considering is precomputing and storing the near area of each trajectory. By doing so, I can reduce redundant calculations and streamline the clustering process, resulting in faster execution times
