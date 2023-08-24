@@ -60,6 +60,16 @@ Modify the values of these hyperparameters to customize the behavior of the clus
 ```bash
 python main.py
 ```
+
+## Testing
+
+To ensure the reliability and correctness of the trajectory clustering script, a set of unit tests have been implemented. These tests cover various aspects of the script's functionality and help identify any potential issues.
+
+To run the unit tests, execute the following command:
+
+```bash
+python test.py
+```
 ## Future Work
 
 - **Optimizing Execution Time**: One of the areas I plan to focus on is optimizing the execution time of the script, particularly for larger datasets. One approach I'm considering is precomputing and storing the near area of each trajectory. By doing so, I can reduce redundant calculations and streamline the clustering process, resulting in faster execution times
