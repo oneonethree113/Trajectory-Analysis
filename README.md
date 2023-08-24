@@ -24,7 +24,7 @@ To address this problem, I developed a Python script that performs trajectory cl
 
 ## Demo in Google Colab
 
-Check out the [Google Colab demo](link_to_colab_demo) to see the trajectory clustering process in action. The demo includes an interactive environment where you can run the clustering code, visualize the results, and experiment with different parameters.
+Check out the [Google Colab demo](https://colab.research.google.com/drive/1j9t1dgd-EU_jJ_A4ZjutEkZP0dud7dPb?usp=sharing) to see the trajectory clustering process in action. The demo includes an interactive environment where you can run the clustering code, visualize the results, and experiment with different parameters.
 
 ## Usage
 
