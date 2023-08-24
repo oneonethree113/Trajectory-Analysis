@@ -18,19 +18,44 @@ To address this problem, I developed a Python script that performs trajectory cl
 
 4. **Visualization**: After clustering, I visualized the trajectories using different colors for each cluster. This allows easy identification of the most common trajectory groups.
 
+## Demo in Google Colab
+
+Check out the [Google Colab demo](link_to_colab_demo) to see the trajectory clustering process in action. The demo includes an interactive environment where you can run the clustering code, visualize the results, and experiment with different parameters.
+
 ## Usage
 
 1. Clone this repository to your local machine.
-2. Replace the provided JSON file with your own trajectory data.
-3. Run the Python script to perform trajectory clustering and generate the visualization.
+2. Install the required libraries using the following command:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Replace the provided JSON file in data folder with your own trajectory data.
+4. Open the main.py script and locate the hyperparameters section:
+ ```bash
+# You can adjust the following hyperparameters as needed
+
+windowSize = 200  # The window size for trajectory comparison
+distanceThreshold = 0.5  # The threshold for merging clusters
+sampleSize = 1000  # The number of trajectories to process
+numMostCommonGroupToDisplay = 30  # The number of trajectory clusters to show
+ ```
+Modify the values of these hyperparameters to customize the behavior of the clustering process.
+
+5. Run the Python script to perform trajectory clustering and generate the visualization in the imags folder.
 
 ## Dependencies
 
 - Python (>= 3.x)
 - scikit-learn
 - matplotlib
+- numpy
 
 ## How to Run
 
 ```bash
-python trajectory_clustering.py
+python main.py
+```
+## Future Work
+
+- **Optimizing Execution Time**: One of the areas I plan to focus on is optimizing the execution time of the script, particularly for larger datasets. One approach I'm considering is precomputing and storing the near area of each trajectory. By doing so, I can reduce redundant calculations and streamline the clustering process, resulting in faster execution times
