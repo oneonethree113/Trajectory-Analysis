@@ -14,7 +14,7 @@ To address this problem, I developed a Python script that performs trajectory cl
 
 1. **Classes**: I created two classes, `Coordinates` and `Trajectory`, to handle the trajectory data and calculate the similarity between trajectories.
 
-2. **Similarity Calculation**: I computed the similarity between trajectories by comparing their directions. The similarity metric was then used as the distance metric for clustering.
+2. **Similarity Calculation**: I computed the similarity between trajectories by comparing their directions. The similarity metric was then used as the distance metric for clustering. The idea of similarity calculation is from [Dilation process in image processing](https://en.wikipedia.org/wiki/Dilation_(morphology)). With dilation operation, the prajectories became a range of area from lines. Then calculate the ratio of coordinates of a trajectory in the dilation area of another trajectory to get the similarity score.
 
 3. **Hierarchical Clustering**: I used the hierarchical clustering algorithm provided by the `scikit-learn` library. The calculated similarity was utilized as the distance metric to create clusters of trajectories.
 
@@ -24,7 +24,7 @@ To address this problem, I developed a Python script that performs trajectory cl
 
 ## Demo in Google Colab
 
-Check out the [Google Colab demo](link_to_colab_demo) to see the trajectory clustering process in action. The demo includes an interactive environment where you can run the clustering code, visualize the results, and experiment with different parameters.
+Check out the [Google Colab demo](https://colab.research.google.com/github/oneonethree113/Trajectory-Analysis/blob/main/AMAG_test.ipynb) to see the trajectory clustering process in action. The demo includes an interactive environment where you can run the clustering code, visualize the results, and experiment with different parameters.
 
 ## Usage
 
@@ -39,8 +39,8 @@ Check out the [Google Colab demo](link_to_colab_demo) to see the trajectory clus
  ```bash
 # You can adjust the following hyperparameters as needed
 
-windowSize = 200  # The window size for trajectory comparison in similarity calculation. Bigger value indicate merge the trajectories with further distance into the same cluster.
-distanceThreshold = 0.5  # The threshold for merging clusters. Bigger value indicate merge the trajectories with further distance into the same cluster.
+windowSize = 200  # The window size for trajectory comparison in similarity calculation. Bigger value indicate merging the trajectories with further distance into the same cluster.
+distanceThreshold = 0.5  # The threshold for merging clusters. Bigger value indicate merging the trajectories with further distance into the same cluster.
 sampleSize = 1000  # The number of trajectories to process
 numMostCommonGroupToDisplay = 30  # The number of trajectory clusters to show
  ```
