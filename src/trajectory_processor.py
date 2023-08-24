@@ -13,6 +13,11 @@ def getBigCluster(clusters: list, numMostCommonGroupToDisplay: int) -> dict:
     Returns:
         dict: Dictionary containing the largest clusters and their member indices.
     """
+    
+    if not isinstance(clusters, list):
+        raise TypeError("clusters must be a list.")
+    if not isinstance(numMostCommonGroupToDisplay, int):
+        raise TypeError("numMostCommonGroupToDisplay must be a int.")
     clusterMembers = {}  # Create a dictionary to store cluster memberships
 
     # Assign data points to clusters
@@ -42,6 +47,10 @@ def formClusterOfTrajectory(distanceMap: np.ndarray, distanceThreshold: float) -
     Returns:
         numpy.ndarray: Cluster assignments.
     """
+    if not isinstance(distanceMap, np.ndarray):
+        raise TypeError("distanceMap must be a np.ndarray.")
+    if not isinstance(distanceThreshold, float):
+        raise TypeError("distanceThreshold must be a float.")
     hierarchicalClusters = linkage(distanceMap, method='single')  # Calculate hierarchical linkage
     maxDistance = distanceThreshold * 2  # Maximum distance for flat clustering
 
@@ -59,6 +68,10 @@ def generateDistanceMap(parsedTrajectoryList: list, windowSize: int) -> np.ndarr
     Returns:
         numpy.ndarray: A NumPy array containing the similarity-based distance map.
     """
+    if not isinstance(parsedTrajectoryList, list):
+        raise TypeError("parsedTrajectoryList must be a list.")
+    if not isinstance(windowSize, int):
+        raise TypeError("windowSize must be a int.")
     print(f'There are {len(parsedTrajectoryList)} trajectories in the dataset')
 
     distanceMap = np.zeros((len(parsedTrajectoryList), len(parsedTrajectoryList)))
