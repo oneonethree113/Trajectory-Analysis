@@ -1,5 +1,6 @@
 
-from obj  import Trajectory,Coordinates
+from src.trajectory  import Trajectory
+from src.coordinates  import Coordinates
 import unittest
 
 class TestCoordinates(unittest.TestCase):
@@ -21,10 +22,23 @@ class TestTrajectory(unittest.TestCase):
         traj2 = Trajectory({'object_id': '2', 'object_type': 'type2', 'coordinates': '1.5,2.5 2.5,3.5'})
 
         # Test similarity method
+        similarity_score = traj1.similarity(traj1, 1)
+        self.assertEqual(similarity_score,1.0)
+        
         similarity_score = traj1.similarity(traj2, 1)
         self.assertIsInstance(similarity_score, float)
         self.assertGreaterEqual(similarity_score, 0.0)
         self.assertLessEqual(similarity_score, 1.0)
+        
+        similarity_score_rev = traj2.similarity(traj1, 1)
+        self.assertEqual(similarity_score,similarity_score_rev)
+        
+        traj = traj1.trajExport()
+        self.assertIsInstance(traj, tuple)
+        self.assertEqual(len(traj[0]),len(traj[1]))
+        
+        
+        
 
 if __name__ == '__main__':
     unittest.main()
