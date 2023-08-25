@@ -46,7 +46,7 @@ numMostCommonGroupToDisplay = 30  # The number of trajectory clusters to show
  ```
 Modify the values of these hyperparameters to customize the behavior of the clustering process.
 
-5. Run the Python script to perform trajectory clustering and generate the visualization in the imags folder.
+5. Run the Python script to perform trajectory clustering and generate the visualization in the images folder.
 
 ## Dependencies
 
